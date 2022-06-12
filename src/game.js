@@ -1,20 +1,29 @@
 class Game {
   constructor() {
     this.player = new Player(0, 0, 1, p1ScoreSpan);
+    this.player2 = new Player(
+      (WIDTH / 10) * 9,
+      (HEIGHT / 10) * 9,
+      2,
+      p2ScoreSpan
+    );
+    this.players = [this.player, this.player2];
     this.treasure = new Treasure();
   }
   play() {
     this.draw();
-    if (this.isColliding(this.player, this.treasure)) {
-      this.treasure.resetTreasure();
-      this.player.score++;
-    }
   }
 
   draw() {
     clear();
     this.drawGrid();
-    this.player.draw();
+    this.players.forEach((player) => {
+      player.draw();
+      if (this.isColliding(player, this.treasure)) {
+        this.treasure.resetTreasure();
+        player.score++;
+      }
+    });
     this.treasure.draw();
   }
 

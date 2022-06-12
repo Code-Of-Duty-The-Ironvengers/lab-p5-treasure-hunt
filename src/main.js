@@ -10,15 +10,9 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode === ARROW_UP) {
-    game.player.moveUp();
-  } else if (keyCode === ARROW_DOWN) {
-    game.player.moveDown();
-  } else if (keyCode === ARROW_LEFT) {
-    game.player.moveLeft();
-  } else if (keyCode === ARROW_RIGHT) {
-    game.player.moveRight();
-  }
+  game.players.forEach((player) => {
+    player.move(keyCode);
+  });
 }
 function preload() {
   PLAYER_DIRECTION_IMAGE.up = loadImage("../assets/character-up.png");
