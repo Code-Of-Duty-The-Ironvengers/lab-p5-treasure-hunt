@@ -14,6 +14,9 @@ class Player {
 
   draw() {
     push();
+    if (this.playerNumber === 2) {
+      tint(255, 150, 150, 255);
+    }
     image(
       PLAYER_DIRECTION_IMAGE[this.movementDirection],
       this.col,
@@ -21,8 +24,8 @@ class Player {
       SQUARE_SIDE,
       SQUARE_SIDE
     );
-
     this.span.innerText = this.score;
+    noTint();
     pop();
   }
   move(key) {
