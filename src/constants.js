@@ -27,7 +27,7 @@ const DIRECTIONS = {
 Object.freeze(DIRECTIONS);
 
 const PLAYER_DIRECTION_IMAGE = {};
-let treasureImage;
+let TREASURE_IMAGE;
 
 const p1ScoreSpan = document.querySelector(".p1-score span");
 const p2ScoreSpan = document.querySelector(".p2-score span");

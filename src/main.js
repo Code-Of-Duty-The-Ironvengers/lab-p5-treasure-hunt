@@ -19,5 +19,5 @@ function preload() {
   PLAYER_DIRECTION_IMAGE.down = loadImage("../assets/character-down.png");
   PLAYER_DIRECTION_IMAGE.left = loadImage("../assets/character-left.png");
   PLAYER_DIRECTION_IMAGE.right = loadImage("../assets/character-right.png");
-  treasureImage = loadImage("../assets/treasure.png");
+  TREASURE_IMAGE = loadImage("../assets/treasure.png");
 }

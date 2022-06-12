@@ -12,6 +12,12 @@ class Game {
   }
   play() {
     this.draw();
+    this.players.forEach((player) => {
+      if (this.isColliding(player, this.treasure)) {
+        this.treasure.resetTreasure();
+        player.score++;
+      }
+    });
   }
 
   draw() {
@@ -19,16 +25,12 @@ class Game {
     this.drawGrid();
     this.players.forEach((player) => {
       player.draw();
-      if (this.isColliding(player, this.treasure)) {
-        this.treasure.resetTreasure();
-        player.score++;
-      }
     });
     this.treasure.draw();
   }
 
   drawGrid() {
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < WIDTH / SQUARE_SIDE + 1; i++) {
       // Horizontal Lines
       line(0, SQUARE_SIDE * i, WIDTH, SQUARE_SIDE * i);
       // Vertical Lines
