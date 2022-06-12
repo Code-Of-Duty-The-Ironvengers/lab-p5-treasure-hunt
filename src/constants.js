@@ -8,3 +8,4 @@ const ARROW_LEFT = 37;
 const ARROW_UP = 38;
 
 let viking;
+let treasure;

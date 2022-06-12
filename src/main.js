@@ -9,12 +9,14 @@ function draw() {
   clear();
   game.drawGrid();
   game.player.draw();
-  // game.play();
+  game.treasure.drawTreasure();
+  game.play();
   // game.test();
 }
 
 function preload() {
   viking = loadImage("../assets/character-down.png");
+  treasure = loadImage("../assets/treasure.png");
 }
 
 function keyPressed() {
@@ -32,11 +34,15 @@ function keyPressed() {
   // }
   if (keyCode === ARROW_DOWN) {
     game.player.moveDown();
+    viking = loadImage("../assets/character-down.png");
   } else if (keyCode === ARROW_UP) {
     game.player.moveUp();
+    viking = loadImage("../assets/character-up.png");
   } else if (keyCode === ARROW_LEFT) {
     game.player.moveLeft();
+    viking = loadImage("../assets/character-left.png");
   } else if (keyCode === ARROW_RIGHT) {
     game.player.moveRight();
+    viking = loadImage("../assets/character-right.png");
   }
 }

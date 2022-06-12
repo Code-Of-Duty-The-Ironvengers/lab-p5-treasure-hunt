@@ -5,6 +5,10 @@ class Game {
     this.endX = 0;
     this.endY = HEIGHT;
     this.player = new Player(0, 0);
+    this.treasure = new Treasure(
+      Math.floor(Math.random() * ((WIDTH - SQUARE_SIDE) / 100)) * 100,
+      Math.floor(Math.random() * ((HEIGHT - SQUARE_SIDE) / 100)) * 100
+    );
   }
 
   drawGrid() {
@@ -25,12 +29,6 @@ class Game {
       line(this.startX, this.startY, this.endX, this.endY);
       this.startY += SQUARE_SIDE;
       this.endY += SQUARE_SIDE;
-
-      // this.endX = 0;
-      // this.endY = 0;
-      // line(this.startX, this.startY, this.endX, this.endY);
-      // this.startY += SQUARE_SIDE;
-      // // this.endY -= SQUARE_SIDE;
     }
     this.startX = 0;
     this.startY = 0;
@@ -38,9 +36,15 @@ class Game {
     this.endY = HEIGHT;
   }
 
-  // play() {
-  //   this.player.move();
-  // }
+  treasureFound(player, treasure) {
+    return player.col === treasure.col && player.row === treasure.row;
+  }
+
+  play() {
+    if (this.treasureFound(this.player, this.treasure)) {
+      this.treasure.setRandomPosition();
+    }
+  }
 
   // test() {
   //   this.player.moveDown(); // Increase by 1 the value of player.row
@@ -48,6 +52,4 @@ class Game {
   //   this.player.moveRight(); // Increase by 1 the value of player.col
   //   console.log(this.player.col, this.player.row); // => 1,2
   // }
-  // line(0, 0, 0, WIDTH);
-  // line(0, 0, WIDTH, 0);
 }
