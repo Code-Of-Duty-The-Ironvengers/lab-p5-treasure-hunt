@@ -1,4 +1,10 @@
 class Game {
+  constructor() {
+    this.player = new Player(0, 0);
+    this.treasure = new Treasure(1, 1);
+    this.treasure.setRandomPosition();
+  }
+
   drawGrid() {
     // Iteration 1
     // Draw the grid
@@ -11,8 +17,6 @@ class Game {
 
     let x = 0;
     let y = 0;
-    const horizontalLine = line(0, y, WIDTH, y);
-    const verticalLine = line(x, 0, x, HEIGHT);
 
     for (let x = 0; x <= WIDTH; x += SQUARE_SIDE) {
       line(x, 0, x, HEIGHT);
@@ -22,40 +26,68 @@ class Game {
       line(0, y, WIDTH, y);
     }
   }
+  play() {
+    this.player.drawPlayer();
+    this.treasure.drawTreasure();
+  }
 }
 
 class Player {
   constructor(col, row) {
     this.col = col;
     this.row = row;
+    this.width = SQUARE_SIDE;
+    this.height = SQUARE_SIDE;
+  }
+
+  drawPlayer() {
+    image(
+      img1,
+      this.col * SQUARE_SIDE,
+      this.row * SQUARE_SIDE,
+      this.width,
+      this.height
+    );
   }
 
   moveUp() {
-    this.row -= 1;
+    if (this.row > 0) this.row -= 1;
   }
   moveDown() {
-    this.row += 1;
+    if (this.row < matY) this.row += 1;
   }
   moveLeft() {
-    this.col -= 1;
+    if (this.col > 0) this.col -= 1;
   }
   moveRight() {
-    this.col += 1;
+    if (this.col < matX) this.col += 1;
+  }
+}
+
+class Treasure {
+  constructor(colT, rowT) {
+    this.colT = colT;
+    this.rowT = rowT;
+    this.width = SQUARE_SIDE;
+    this.height = SQUARE_SIDE;
+  }
+  setRandomPosition() {
+    this.colT = Math.floor(Math.random() * matX);
+    this.rowT = Math.floor(Math.random() * matY);
   }
 
-  drawPlayer(col, row) {}
+  drawTreasure() {
+    image(
+      img2,
+      this.colT * SQUARE_SIDE,
+      this.rowT * SQUARE_SIDE,
+      this.width,
+      this.height
+    );
+  }
 
-  move() {
-    if (keyPressed(UP_ARROW)) {
-      this.moveUp();
-    } else if (keyPressed(DOWN_ARROW)) {
-      this.moveDown();
-    }
-
-    if (keyPressed(LEFT_ARROW)) {
-      this.moveLeft();
-    } else if (keyPressed(RIGHT_ARROW)) {
-      this.moveRight();
-    }
+  resetPosition() {
+    this.col = this.setRandomPosition();
+    this.row = this.setRandomPosition();
   }
 }
