@@ -11,7 +11,6 @@ function draw() {
   game.player.draw();
   game.treasure.drawTreasure();
   game.play();
-  // game.test();
 }
 
 function preload() {
@@ -19,6 +18,7 @@ function preload() {
   treasure = loadImage("../assets/treasure.png");
 }
 
+// TO DO: keys for second player
 function keyPressed() {
   // move() {
   //   if (keyIsDown(ARROW_DOWN)) {

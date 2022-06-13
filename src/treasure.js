@@ -1,11 +1,5 @@
 class Treasure {
   constructor(col, row) {
-    // this.col = random(WIDHT - SQUARE_SIDE);
-    // this.row = random(HEIGHT - SQUARE_SIDE);
-    // this.col = 900;
-    // this.row = 900;
-    // this.col = Math.floor(Math.random() * (WIDHT - SQUARE_SIDE));
-    // this.row = Math.floor(Math.random() * (HEIGHT - SQUARE_SIDE));
     this.col = col;
     this.row = row;
     this.width = SQUARE_SIDE;

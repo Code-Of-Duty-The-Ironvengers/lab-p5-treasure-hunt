@@ -4,7 +4,7 @@ class Game {
     this.startY = 0;
     this.endX = 0;
     this.endY = HEIGHT;
-    this.player = new Player(0, 0);
+    this.player = new Player(0, 0, player1);
     this.treasure = new Treasure(
       Math.floor(Math.random() * ((WIDTH - SQUARE_SIDE) / 100)) * 100,
       Math.floor(Math.random() * ((HEIGHT - SQUARE_SIDE) / 100)) * 100
@@ -48,11 +48,4 @@ class Game {
         this.player.score;
     }
   }
-
-  // test() {
-  //   this.player.moveDown(); // Increase by 1 the value of player.row
-  //   this.player.moveDown(); // Increase by 1 the value of player.row
-  //   this.player.moveRight(); // Increase by 1 the value of player.col
-  //   console.log(this.player.col, this.player.row); // => 1,2
-  // }
 }
