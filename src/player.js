@@ -4,6 +4,7 @@ class Player {
     this.row = row;
     this.width = SQUARE_SIDE;
     this.height = SQUARE_SIDE;
+    this.score = 0;
   }
 
   moveUp() {

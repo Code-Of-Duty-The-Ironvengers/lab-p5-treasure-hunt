@@ -43,6 +43,9 @@ class Game {
   play() {
     if (this.treasureFound(this.player, this.treasure)) {
       this.treasure.setRandomPosition();
+      this.player.score++;
+      document.getElementById("score").querySelector("span").innerText =
+        this.player.score;
     }
   }
 
