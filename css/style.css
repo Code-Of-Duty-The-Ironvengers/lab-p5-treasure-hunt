@@ -8,3 +8,10 @@ body {
 h1 {
   font-weight: 100;
 }
+
+.scores {
+  display: flex;
+  width:1000px;
+  padding-bottom: 1rem;
+  justify-content: space-between;
+}
