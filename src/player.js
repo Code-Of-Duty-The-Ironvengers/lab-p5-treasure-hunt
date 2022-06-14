@@ -6,43 +6,62 @@ class Player {
     this.width = SQUARE_SIDE;
     this.height = SQUARE_SIDE;
     this.score = 0;
-    this.directions = DIRECTIONS[name];
+    // this.directions = DIRECTIONS[name];
   }
 
   moveUp() {
-    this.row -= SQUARE_SIDE;
+    if (this.row - SQUARE_SIDE >= 0) {
+      this.row -= SQUARE_SIDE;
+    }
   }
 
   moveDown() {
-    this.row += SQUARE_SIDE;
+    if (this.row + SQUARE_SIDE <= HEIGHT - SQUARE_SIDE) {
+      this.row += SQUARE_SIDE;
+    }
   }
 
   moveLeft() {
-    this.col -= SQUARE_SIDE;
+    if (this.col - SQUARE_SIDE >= 0) {
+      this.col -= SQUARE_SIDE;
+    }
   }
 
   moveRight() {
-    this.col += SQUARE_SIDE;
+    if (this.col + SQUARE_SIDE <= WIDTH - SQUARE_SIDE) {
+      this.col += SQUARE_SIDE;
+    }
   }
 
   draw() {
     // push();
     // fill("orange");
     // rect(this.col, this.row, this.width, this.height);
-    image(viking, this.col, this.row, this.width, this.height);
+    if (this.name === "player1") {
+      image(viking, this.col, this.row, this.width, this.height);
+    } else if (this.name === "player2") {
+      image(
+        viking2,
+        this.col + 10,
+        this.row + 10,
+        this.width - 20,
+        this.height - 20
+      );
+      // rect("orange", this.col, this.row, this.width, this.height);
+    }
     // pop();
   }
 
   // move() {
-  //   if (keyIsDown(this.directions.down)) {
-  //     this.moveDown();
-  //   } else if (keyIsDown(this.directions.up)) {
-  //     this.moveUp();
-  //   }
-  //   if (keyIsDown(this.directions.left)) {
-  //     this.moveLeft();
-  //   } else if (keyIsDown(this.directions.right)) {
-  //     this.moveRight();
-  //   }
+  // if (keyCode === this.directions.down) {
+  //   this.moveDown();
+  // } else if (keyCode === this.directions.up) {
+  //   this.moveUp();
+  // }
+  // if (keyCode === this.directions.left) {
+  //   this.moveLeft();
+  // } else if (keyCode === this.directions.right) {
+  //   this.moveRight();
+  // }
   // }
 }
