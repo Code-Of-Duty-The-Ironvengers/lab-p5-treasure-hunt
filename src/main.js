@@ -6,5 +6,11 @@ function setup() {
 }
 
 function draw() {
+  clear();
   game.drawGrid();
+  game.play();
+}
+
+function preload() {
+  game.preload();
 }
