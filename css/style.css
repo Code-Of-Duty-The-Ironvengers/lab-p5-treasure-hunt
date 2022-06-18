@@ -8,3 +8,26 @@ body {
 h1 {
   font-weight: 100;
 }
+
+#scores {
+  font-size: 50px;
+}
+
+button {
+  font-size: 30px;
+  height: 150px;
+  width: 250px;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 25%;
+}
+
+#btnP1 {
+  background-color:#98FB98;
+  border: inset 10px #00FF00;
+}
+
+#btnP2 {
+  background-color:#e48979;
+  border: inset 10px #FF6347;
+}
