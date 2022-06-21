@@ -22,7 +22,12 @@ class Player {
     this.col = col
     this.row = row
 
+
   }
+
+
+
+
 
   draw(img) {
     image(img, 0, 0)
@@ -32,15 +37,19 @@ class Player {
 
   moveUp() {
     this.row = this.row - 1
+    image(this.moveUpImage, this.col * (WIDTH / 10), this.row * (WIDTH / 10))
   }
   moveDown() {
     this.row = this.row + 1
+    image(this.moveDownImage, this.col * (WIDTH / 10), this.row * (WIDTH / 10))
   }
   moveLeft() {
     this.col = this.col - 1
+    image(this.moveLeftImage, this.col * (WIDTH / 10), this.row * (WIDTH / 10))
   }
   moveRight() {
     this.col = this.col + 1
+    image(this.moveRightImage, this.col * (WIDTH / 10), this.row * (WIDTH / 10))
 
   }
 
